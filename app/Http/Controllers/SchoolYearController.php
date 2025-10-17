@@ -14,7 +14,8 @@ class SchoolYearController extends Controller
      */
     public function index()
     {
-        //
+        $schoolYears = SchoolYear::orderByDesc('year_start')->paginate(20);
+        return view('school_years.index')->with(compact("schoolYears"));
     }
 
     /**
