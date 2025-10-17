@@ -31,8 +31,8 @@ class SchoolYearController extends Controller
      */
     public function store(StoreSchoolYearRequest $request)
     {
-        SchoolYear::create($request->validated());
-        return to_route('school_years.create');
+        $schoolYear = SchoolYear::create($request->validated());
+        return to_route('school_years.index')->with(["new school year" => $schoolYear->id]);
     }
 
     /**
