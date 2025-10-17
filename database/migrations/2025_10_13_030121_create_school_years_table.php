@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('year_start');
             $table->integer('year_end')->nullable();
             $table->text('description')->nullable();
+            $table->unique(['year_start', 'year_end']);
             $table->timestamps();
         });
     }
